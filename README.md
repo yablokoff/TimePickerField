@@ -28,7 +28,7 @@ Ext.onReady(function () {
                 startTime: 600,
                 endTime: 2300,
                 increment: 30,
-                value: "2:00 PM"
+                value: "2:00"
             }]
         }]
     });
