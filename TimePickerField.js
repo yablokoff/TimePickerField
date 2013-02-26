@@ -105,11 +105,21 @@ Ext.define("App.view.TimePickerField", {
 // We want to release focus on the field so that the keyboard doesn't show up
 // while we're picking a time.
 
-        this.on("focus", function (field, e) {
+        this.on('focus', function (field, e){
             that.picker.show();
+            that.picker.setValue({
+                'time': that.stringToValue(field.getValue())
+            }, true);
             field.blur();
         });
 
         this.callParent(arguments);
+    },
+    
+    stringToValue: function(stringValue){
+        if (stringValue[0] === '0')
+            return stringValue.substring(1);
+        else
+            return stringValue;
     }
 });
